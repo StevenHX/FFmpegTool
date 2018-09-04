@@ -108,4 +108,11 @@
         <!--是否显示标题-->
         <attr name="showTitle" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="WxActionBar">
+        <!--左侧图标-->
+        <attr name="wxleftIcon" format="reference"/>
+        <!--标题文字-->
+        <attr name="wxtitleString" format="string"/>
+    </declare-styleable>
 </resources>
