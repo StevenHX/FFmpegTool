@@ -16,14 +16,17 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:configChanges="screenSize|keyboardHidden|orientation"
-            android:theme="@style/full_screen_style"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:theme="@style/full_screen_style">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.VideoInfo.VideoInfoActivity">
+        <activity android:name=".ui.videoInfo.VideoInfoActivity">
+        </activity>
+        <activity android:name=".ui.videoWaterMark.VideoWaterMarkActivity">
         </activity>
     </application>
 

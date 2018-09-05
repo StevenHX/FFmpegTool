@@ -1,4 +1,5 @@
 package com.hx.steven.app;
+
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
@@ -10,6 +11,9 @@ import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 
 /**
  * Created by user on 2018/1/15.
@@ -17,6 +21,7 @@ import com.orhanobut.logger.PrettyFormatStrategy;
 
 public class BaseApplication extends Application{
     private static BaseApplication mApp;
+    public Executor mostExecutor   = Executors.newFixedThreadPool(5);
     @Override
     public void onCreate() {
         super.onCreate();

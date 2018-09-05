@@ -1,4 +1,4 @@
-package com.hx.ffmpegtool.ui.VideoInfo;
+package com.hx.ffmpegtool.ui.videoInfo;
 
 import android.content.Intent;
 import android.util.Log;
@@ -11,6 +11,8 @@ import com.hx.ffmpegtool.R;
 import com.hx.ffmpegtool.ffmpeg.FFmpegExecuteListener;
 import com.hx.ffmpegtool.ffmpeg.FFmpegManer;
 import com.hx.steven.activity.BaseActivity;
+import com.hx.steven.component.WxActionBar;
+import com.hx.steven.util.StatusBarUtils;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -21,12 +23,15 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class VideoInfoActivity extends BaseActivity {
+    @BindView(R.id.video_info_bar)
+    WxActionBar mWxActionBar;
     @BindView(R.id.video_info_button)
     TextView mVideoInfoButton;
     @BindView(R.id.video_info_content)
     TextView mVideoInfoContent;
     ArrayList<Media> select;//相册选中数据
     private StringBuilder mStringBuilder;
+
     {
         setEnableMultiple(false);
     }
@@ -34,6 +39,13 @@ public class VideoInfoActivity extends BaseActivity {
     @Override
     protected void initView() {
         ButterKnife.bind(this);
+        StatusBarUtils.setWindowStatusBarColor(this,R.color.statusBarColor);
+        mWxActionBar.setOnHeadClickListener(new WxActionBar.OnHeadClickListener() {
+            @Override
+            public void ClickLeft() {
+                finish();
+            }
+        });
     }
 
     @Override
@@ -51,6 +63,7 @@ public class VideoInfoActivity extends BaseActivity {
         intent.putExtra(PickerConfig.DEFAULT_SELECTED_LIST, select); // (Optional)
         this.startActivityForResult(intent, 200);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -60,7 +73,7 @@ public class VideoInfoActivity extends BaseActivity {
                 Log.i("media", media.path);
                 Log.i("media", "s:" + media.size);
                 mStringBuilder = new StringBuilder();
-                mStringBuilder.append("视频大小："+media.size/1024/1024+"M \n");
+                mStringBuilder.append("视频大小：" + media.size / 1024 / 1024 + "M \n");
                 FFmpegManer.getInstance().runFFmpegCommad("-i " + media.path, new FFmpegExecuteListener() {
                     @Override
                     public void FFmpegExcuteSuccess(String s) {
@@ -69,7 +82,7 @@ public class VideoInfoActivity extends BaseActivity {
 
                     @Override
                     public void FFmpegExcuteFail(String s) {
-                       getVideoTime(s);
+                        getVideoTime(s);
                     }
 
                     @Override
@@ -82,7 +95,7 @@ public class VideoInfoActivity extends BaseActivity {
     }
 
     /**
-     * 获取视频
+     * 获取视频信息
      */
     public void getVideoTime(String errorstr) {
         //从视频信息中解析时长
@@ -92,15 +105,15 @@ public class VideoInfoActivity extends BaseActivity {
         if (m.find()) {
             int time = getTimelen(m.group(1));
             mStringBuilder.append("视频时长：" + time + "s ,\n 开始时间：" + m.group(2) + ", \n比特率：" + m.group(3) + "kb/s\n");
-            System.out.println("视频时长：" + time + "s , 开始时间：" + m.group(2) + ", 比特率：" + m.group(3) + "kb/s");
+            //System.out.println("视频时长：" + time + "s , 开始时间：" + m.group(2) + ", 比特率：" + m.group(3) + "kb/s");
         }
 
-        String regexVideo = "Video: (.*?), (.*?), (.*?),(.*?),(.*?)[,\\s]";
+        String regexVideo = "Video: (.*?), (.*?), (.*?), (.*?)[,\\s]";
         pattern = Pattern.compile(regexVideo);
         m = pattern.matcher(errorstr);
         if (m.find()) {
-            mStringBuilder.append("编码格式：" + m.group(1) + ",\n 视频格式：" + m.group(2) +  m.group(3)+",\n 分辨率：" + m.group(4));
-            System.out.println("编码格式：" + m.group(1) + ", 视频格式：" + m.group(2) + ", 分辨率：" + m.group(3) + "kb/s");
+            mStringBuilder.append("编码格式：" + m.group(1) + ",\n 视频格式：" + m.group(2) + ",\n 分辨率：" + m.group(3));
+            //System.out.println("编码格式：" + m.group(1) + ", 视频格式：" + m.group(2) + ", 分辨率：" + m.group(3) + "kb/s");
         }
 
         mVideoInfoContent.setText(mStringBuilder.toString());

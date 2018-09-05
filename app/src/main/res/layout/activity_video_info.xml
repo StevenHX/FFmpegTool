@@ -8,6 +8,7 @@
     android:gravity="center_horizontal">
 
     <com.hx.steven.component.WxActionBar
+        android:id="@+id/video_info_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/x96"
         app:wxleftIcon="@drawable/ic_back"

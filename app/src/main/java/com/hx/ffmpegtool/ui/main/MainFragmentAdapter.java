@@ -8,7 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hx.ffmpegtool.R;
-import com.hx.ffmpegtool.ui.VideoInfo.VideoInfoActivity;
+import com.hx.ffmpegtool.ui.videoInfo.VideoInfoActivity;
+import com.hx.ffmpegtool.ui.videoWaterMark.VideoWaterMarkActivity;
 import com.hx.steven.adapter.CommonViewHolder;
 public class MainFragmentAdapter extends RecyclerView.Adapter<CommonViewHolder> {
 
@@ -44,6 +45,7 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<CommonViewHolder> 
                     ((MainActivity)mContext).launch(mContext, VideoInfoActivity.class);
                     break;
                 case 1:
+                    ((MainActivity)mContext).launch(mContext, VideoWaterMarkActivity.class);
                     break;
                 case 2:
                     break;

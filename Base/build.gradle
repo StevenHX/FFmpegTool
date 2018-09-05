@@ -27,13 +27,13 @@ dependencies {
 
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support:support-v4:26.1.0'
-    implementation 'com.android.support:design:26.1.0'
+    api 'com.android.support:design:26.1.0'
     //banner
-    implementation 'com.youth.banner:banner:1.4.10'
+    api 'com.youth.banner:banner:1.4.10'
     //gson
-    implementation 'com.google.code.gson:gson:2.8.2'
+    api 'com.google.code.gson:gson:2.8.2'
     //logger
-    implementation 'com.orhanobut:logger:2.1.1'
+    api 'com.orhanobut:logger:2.1.1'
     //Retrofit+okHttp3
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
@@ -44,7 +44,7 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     //Glide
-    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    api 'com.github.bumptech.glide:glide:4.7.1'
     //约束布局
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    api 'com.android.support.constraint:constraint-layout:1.1.3'
 }

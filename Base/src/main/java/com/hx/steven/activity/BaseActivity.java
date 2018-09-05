@@ -10,8 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import com.hx.steven.R;
@@ -46,8 +44,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);//设置屏幕保持竖直
         initContainer();
-        setInside();
-        excuteStatesBar();
         initView();
     }
 
@@ -69,30 +65,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             mContainer.addView(layout);
         }
     }
-
-    /**
-     * 设置沉浸式效果
-     */
-    private void setInside() {
-        //透明状态栏
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        //透明导航栏
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-    }
-
-    /**
-     * 解决4.4设置状态栏颜色之后，布局内容嵌入状态栏位置问题
-     */
-    private void excuteStatesBar() {
-        ViewGroup mContentView = (ViewGroup) getWindow().findViewById(Window.ID_ANDROID_CONTENT);
-        View mChildView = mContentView.getChildAt(0);
-        if (mChildView != null) {
-            //注意不是设置 ContentView 的 FitsSystemWindows,
-            // 而是设置 ContentView 的第一个子 View ，预留出系统 View 的空间.
-            mChildView.setFitsSystemWindows(true);
-        }
-    }
-
     protected abstract void initView();
 
     protected abstract int getContentId();

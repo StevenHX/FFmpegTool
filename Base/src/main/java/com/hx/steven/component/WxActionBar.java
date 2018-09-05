@@ -14,13 +14,13 @@ import android.widget.TextView;
 
 import com.hx.steven.R;
 
-public class WxActionBar extends LinearLayout implements View.OnClickListener {
+public class WxActionBar extends LinearLayout{
     private Drawable leftIcon;//左侧图案
     private String titleString;//标题文字
     private LayoutInflater inflater;
     private ImageView leftIv;//left_icon
     private TextView titleTv;//title控件
-    private HeaderView.OnHeadClickListener headClickListener;
+    private OnHeadClickListener headClickListener;
 
     public WxActionBar(Context context) {
         this(context, null);
@@ -47,13 +47,13 @@ public class WxActionBar extends LinearLayout implements View.OnClickListener {
         titleTv = headView.findViewById(R.id.wxaction_title);
         leftIv.setImageDrawable(leftIcon);
         titleTv.setText(titleString);
-        leftIv.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (headClickListener != null)
-            headClickListener.ClickLeft();
+        leftIv.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (headClickListener != null)
+                    headClickListener.ClickLeft();
+            }
+        });
     }
 
     public void setLeftIcon(int resId) {
@@ -72,7 +72,7 @@ public class WxActionBar extends LinearLayout implements View.OnClickListener {
     /**
      * 设置点击事件
      */
-    public void setOnHeadClickListener(HeaderView.OnHeadClickListener listener) {
+    public void setOnHeadClickListener(OnHeadClickListener listener) {
         this.headClickListener = listener;
     }
 
