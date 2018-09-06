@@ -7,12 +7,5 @@
     android:layout_height="match_parent"
     tools:context="com.hx.ffmpegtool.ui.videocut.VideoCutActivity">
 
-    <com.hx.steven.component.SeekRangeBar
-        android:id="@+id/videoCut_sb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+
 </android.support.constraint.ConstraintLayout>

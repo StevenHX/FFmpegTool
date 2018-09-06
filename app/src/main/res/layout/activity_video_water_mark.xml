@@ -83,7 +83,6 @@
         app:layout_constraintTop_toBottomOf="@+id/video_mark_waterpath"/>
 
     <TextView
-        android:text="left_bottom"
         android:enabled="false"
         android:id="@+id/video_mark_orition"
         android:layout_width="match_parent"

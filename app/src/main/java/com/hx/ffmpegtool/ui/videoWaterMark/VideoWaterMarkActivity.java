@@ -6,6 +6,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
+import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
+import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.dmcbig.mediapicker.PickerActivity;
 import com.dmcbig.mediapicker.PickerConfig;
 import com.dmcbig.mediapicker.entity.Media;
@@ -48,6 +51,8 @@ public class VideoWaterMarkActivity extends BaseActivity {
     @BindView(R.id.video_mark_button)
     TextView mVideoMarkButton;
     ArrayList<Media> select = new ArrayList<>();//相册选中数据
+    ArrayList<String> options1Items;//位置选项数据
+    OptionsPickerView pvOptions;
     String outpath;
 
     {
@@ -61,6 +66,7 @@ public class VideoWaterMarkActivity extends BaseActivity {
         mVideoMarkBar.setOnHeadClickListener(() -> {
             finish();
         });
+        initOritionPicker();
     }
 
     @Override
@@ -78,7 +84,8 @@ public class VideoWaterMarkActivity extends BaseActivity {
                 jumpToPickerActivity(PickerConfig.PICKER_IMAGE);
                 break;
             case R.id.video_mark_orition_btn:
-
+                if (pvOptions != null)
+                    pvOptions.show();
                 break;
             case R.id.video_mark_button:
                 if (checkParams()) {
@@ -86,6 +93,26 @@ public class VideoWaterMarkActivity extends BaseActivity {
                 }
                 break;
         }
+    }
+
+    public void initOritionPicker() {
+        if (options1Items == null) {
+            options1Items = new ArrayList<>();
+            options1Items.add("left_bottom");
+            options1Items.add("left_top");
+            options1Items.add("right_top");
+            options1Items.add("right_bottom");
+        }
+        pvOptions = new OptionsPickerBuilder(this, new OnOptionsSelectListener() {
+            @Override
+            public void onOptionsSelect(int options1, int option2, int options3, View v) {
+                //返回的分别是三个级别的选中位置
+                String tx = options1Items.get(options1);
+                mVideoMarkOrition.setText(tx);
+                mVideoMarkOrition.setEnabled(true);
+            }
+        }).build();
+        pvOptions.setPicker(options1Items);
     }
 
     private void jumpToPickerActivity(int type) {
@@ -167,11 +194,11 @@ public class VideoWaterMarkActivity extends BaseActivity {
         if (TextUtils.equals(oritation, "left_bottom")) {
             stringBuilder.append("0:main_h-overlay_h");
         } else if (TextUtils.equals(oritation, "left_top")) {
-
+            stringBuilder.append("0:0");
         } else if (TextUtils.equals(oritation, "right_top")) {
-
+            stringBuilder.append("main_w-overlay_w:0");
         } else if (TextUtils.equals(oritation, "right_bottom")) {
-
+            stringBuilder.append("main_w-overlay_w:main_h-overlay_h");
         }
         stringBuilder.append(" -preset ultrafast -c:a copy ").append(outpath);
         Logger.d("cmd=" + stringBuilder.toString());

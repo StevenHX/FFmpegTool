@@ -5,7 +5,6 @@
         <item name="colorControlActivated">@color/base</item>
         <!-- Label标签的颜色 -->
         <item name="colorAccent">@color/base</item>
-        <item name="android:windowBackground">@mipmap/mainbg1</item>
         <item name="android:windowAnimationStyle">@style/FeelyouWindowAnimTheme</item>
     </style>
     <style name="FeelyouWindowAnimTheme" parent="@android:style/Animation.Activity">
