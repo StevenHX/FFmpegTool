@@ -162,14 +162,18 @@ public class VideoWaterMarkActivity extends BaseActivity {
                     Logger.d("success");
                     dismissProgressDialog();
                     FileUtil.scanFile(getApplicationContext(), outpath);
-                    ToastUtil.showToast(VideoWaterMarkActivity.this, "添加成功！");
+                    runOnUiThread(()->{
+                        ToastUtil.showToast(VideoWaterMarkActivity.this, "添加成功！");
+                    });
                 }
 
                 @Override
                 public void FFmpegExcuteFail(String s) {
                     Logger.d("fail");
                     dismissProgressDialog();
-                    ToastUtil.showToast(VideoWaterMarkActivity.this, "添加失败！");
+                    runOnUiThread(()->{
+                        ToastUtil.showToast(VideoWaterMarkActivity.this, "添加失败！");
+                    });
                 }
 
                 @Override

@@ -78,7 +78,9 @@ public class VideoCutActivity extends BaseActivity {
             public void onFinishTrim(String url) {
                 dismissProgressDialog();
                 FileUtil.scanFile(getApplicationContext(),mVideoTrimmerView.getFinalPath());
-                ToastUtil.showToast(VideoCutActivity.this, "裁剪视频完成");
+                runOnUiThread(()->{
+                    ToastUtil.showToast(VideoCutActivity.this, "裁剪视频完成");
+                });
             }
 
             @Override

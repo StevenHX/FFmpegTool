@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hx.ffmpegtool.R;
+import com.hx.ffmpegtool.ui.videoConnect.VideoConnectActivity;
 import com.hx.ffmpegtool.ui.videoInfo.VideoInfoActivity;
 import com.hx.ffmpegtool.ui.videoWaterMark.VideoWaterMarkActivity;
 import com.hx.ffmpegtool.ui.videocut.VideoCutActivity;
@@ -52,6 +53,7 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<CommonViewHolder> 
                     ((MainActivity)mContext).launch(mContext, VideoCutActivity.class);
                     break;
                 case 3:
+                    ((MainActivity)mContext).launch(mContext, VideoConnectActivity.class);
                     break;
                 case 4:
                     break;

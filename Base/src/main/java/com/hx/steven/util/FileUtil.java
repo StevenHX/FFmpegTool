@@ -10,7 +10,6 @@ import java.io.File;
 import java.math.BigDecimal;
 
 /**
- * Created by dashan on 2016/9/7
  * 文件计算工具类
  */
 public class FileUtil {
