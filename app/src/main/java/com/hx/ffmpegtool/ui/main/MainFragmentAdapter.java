@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.hx.ffmpegtool.R;
 import com.hx.ffmpegtool.ui.videoConnect.VideoConnectActivity;
 import com.hx.ffmpegtool.ui.videoInfo.VideoInfoActivity;
+import com.hx.ffmpegtool.ui.videoResize.VideoResizeActivity;
 import com.hx.ffmpegtool.ui.videoWaterMark.VideoWaterMarkActivity;
 import com.hx.ffmpegtool.ui.videocut.VideoCutActivity;
 import com.hx.steven.adapter.CommonViewHolder;
@@ -19,10 +20,10 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<CommonViewHolder> 
     private ImageView itemIv;
     private TextView itemTv;
     private String[] titles = new String[]{
-            "视频信息", "视频图片添加水印", "视频裁剪", "视频合并", "视频旋转", "输出指定分辨率视频"
+            "视频信息", "视频图片添加水印", "视频裁剪", "视频合并","输出指定分辨率视频"
     };
     private int[] imgs = new int[]{
-            R.mipmap.ic_main_01, R.mipmap.ic_main_02, R.mipmap.ic_main_03, R.mipmap.ic_main_04, R.mipmap.ic_main_05, R.mipmap.ic_main_06
+            R.mipmap.ic_main_01, R.mipmap.ic_main_02, R.mipmap.ic_main_03, R.mipmap.ic_main_04, R.mipmap.ic_main_06
     };
 
     public MainFragmentAdapter(Context context) {
@@ -56,8 +57,7 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<CommonViewHolder> 
                     ((MainActivity)mContext).launch(mContext, VideoConnectActivity.class);
                     break;
                 case 4:
-                    break;
-                case 5:
+                    ((MainActivity)mContext).launch(mContext, VideoResizeActivity.class);
                     break;
             }
         });
@@ -65,6 +65,6 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<CommonViewHolder> 
 
     @Override
     public int getItemCount() {
-        return 6;
+        return titles.length;
     }
 }

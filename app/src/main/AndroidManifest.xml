@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.hx.ffmpegtool">
+    package="com.hx.ffmpegtool">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".app.ToolApp"
@@ -19,19 +19,16 @@
             android:launchMode="singleTask"
             android:theme="@style/full_screen_style">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.videoInfo.VideoInfoActivity">
-        </activity>
-        <activity android:name=".ui.videoWaterMark.VideoWaterMarkActivity">
-        </activity>
-        <activity android:name=".ui.videocut.VideoCutActivity">
-        </activity>
-        <activity android:name=".ui.videoConnect.VideoConnectActivity">
-        </activity>
+        <activity android:name=".ui.videoInfo.VideoInfoActivity"></activity>
+        <activity android:name=".ui.videoWaterMark.VideoWaterMarkActivity"></activity>
+        <activity android:name=".ui.videocut.VideoCutActivity"></activity>
+        <activity android:name=".ui.videoConnect.VideoConnectActivity"></activity>
+        <activity android:name=".ui.videoResize.VideoResizeActivity"></activity>
     </application>
 
 </manifest>

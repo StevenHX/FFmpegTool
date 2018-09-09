@@ -9,7 +9,6 @@ import com.github.hiteshsondhi88.libffmpeg.ExecuteBinaryResponseHandler;
 import com.github.hiteshsondhi88.libffmpeg.FFmpeg;
 import com.github.hiteshsondhi88.libffmpeg.exceptions.FFmpegCommandAlreadyRunningException;
 import com.hx.ffmpegtool.app.ToolApp;
-import com.hx.steven.callback.SingleCallback;
 import com.hx.steven.util.TimeUtil;
 import com.hx.steven.util.UnitConverter;
 import com.hx.steven.util.WindowUtil;

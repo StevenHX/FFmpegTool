@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hx.ffmpegtool.ui.videoResize.VideoResizeActivity">
+
+    <com.hx.steven.component.WxActionBar
+        android:id="@+id/video_resize_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:wxleftIcon="@drawable/ic_back"
+        app:wxtitleString="调整视频分辨率">
+    </com.hx.steven.component.WxActionBar>
+
+    <TextView
+        android:enabled="false"
+        android:id="@+id/video_resize_videopath"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:singleLine="false"
+        android:textSize="@dimen/x28"
+        android:gravity="center_vertical"
+        android:padding="@dimen/x8"
+        android:background="@drawable/videowater_input_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/video_resize_bar"/>
+
+    <TextView
+        android:id="@+id/video_resize_videobtn"
+        android:layout_width="@dimen/x300"
+        android:layout_height="@dimen/x50"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/choose_videobg"
+        android:gravity="center"
+        android:text="选取视频"
+        android:textSize="@dimen/x24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/video_resize_videopath"/>
+
+
+    <TextView
+        android:enabled="false"
+        android:id="@+id/video_resize_px_path"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/videowater_input_bg"
+        android:gravity="center_vertical"
+        android:padding="@dimen/x8"
+        android:singleLine="true"
+        android:textSize="@dimen/x28"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/video_resize_videobtn"/>
+
+    <TextView
+        android:id="@+id/video_resize_px_btn"
+        android:layout_width="@dimen/x300"
+        android:layout_height="@dimen/x50"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/choose_videobg"
+        android:gravity="center"
+        android:text="设置分辨率"
+        android:textSize="@dimen/x24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/video_resize_px_path"/>
+
+    <TextView
+        android:id="@+id/video_resize_button"
+        android:layout_width="@dimen/x360"
+        android:layout_height="@dimen/x60"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/choose_videobg"
+        android:enabled="true"
+        android:gravity="center"
+        android:text="输出对应分辨率视频"
+        android:textStyle="bold"
+        android:textSize="@dimen/x28"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/video_resize_px_btn"/>
+
+</android.support.constraint.ConstraintLayout>

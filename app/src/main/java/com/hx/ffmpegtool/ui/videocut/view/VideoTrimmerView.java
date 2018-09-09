@@ -26,7 +26,6 @@ import android.widget.VideoView;
 import com.hx.ffmpegtool.R;
 import com.hx.ffmpegtool.app.CreateConstants;
 import com.hx.ffmpegtool.app.ToolApp;
-import com.hx.steven.callback.SingleCallback;
 
 /**
  * Author：J.Chou

@@ -1,5 +1,6 @@
 package com.hx.ffmpegtool.ui.main;
 
+import android.Manifest;
 import android.support.v4.view.ViewPager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -7,6 +8,7 @@ import android.widget.RelativeLayout;
 import com.hx.ffmpegtool.R;
 import com.hx.steven.activity.BaseActivity;
 import com.hx.steven.component.VerticalViewPager;
+import com.hx.steven.util.MPermissionUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +36,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         ButterKnife.bind(this);
+        RequestPermissions(100, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE);
         initFragments();
         MainBgAssist.getInstance().bindView(mMainBg, mMainBg2);
     }
